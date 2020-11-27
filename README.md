@@ -5,6 +5,8 @@ Here is an official video how to make a factory reset (after that the device wil
 
 I have created a simple hardware-software system to automate the paring process.
 
+[![](img/youtube_video.png)](https://www.youtube.com/watch?v=pb24TfFuzR4)
+
 ## Hardware part
 
 You will need:
