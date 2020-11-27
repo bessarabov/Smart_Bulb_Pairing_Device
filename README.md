@@ -74,43 +74,18 @@ wifi:
   password: !secret wifi_password
 
 logger:
+
 api:
   password: !secret api_password
 
-  services:
-    - service: tradfri_bulb_pairing
-      then:
-        - switch.turn_on: relay
-        - delay: 2s
-        - switch.turn_off: relay
-
-        - delay: 1000ms
-        - switch.turn_on: relay
-        - delay: 250ms
-        - switch.turn_off: relay
-        - delay: 1000ms
-        - switch.turn_on: relay
-        - delay: 250ms
-        - switch.turn_off: relay
-        - delay: 1000ms
-        - switch.turn_on: relay
-        - delay: 250ms
-        - switch.turn_off: relay
-        - delay: 1000ms
-        - switch.turn_on: relay
-        - delay: 250ms
-        - switch.turn_off: relay
-        - delay: 1000ms
-        - switch.turn_on: relay
-        - delay: 250ms
-        - switch.turn_off: relay
-
-        - delay: 1000ms
-        - switch.turn_on: relay
-
-
 ota:
   password: !secret ota_password
+
+switch:
+  - platform: gpio
+    id: relay
+    pin: GPIO12
+    name: "Sonoff Relay"
 
 binary_sensor:
   - platform: gpio
@@ -147,25 +122,6 @@ binary_sensor:
 
       - delay: 1000ms
       - switch.turn_on: relay
-
-switch:
-  - platform: gpio
-    id: relay
-    pin: GPIO12
-    name: "Sonoff Relay"
-
-output:
-  - platform: gpio
-    id: basic_green_led
-    pin:
-      number: GPIO13
-      inverted: True
-
-light:
-  - platform: binary
-    name: "Sonoff Green LED"
-    output: basic_green_led
-    id: led
 ```
 
 ## Credits
